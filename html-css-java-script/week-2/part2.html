@@ -1,50 +1,47 @@
 <!DOCTYPE html>
 <html>
     <head>
-    	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
         <title>Guessing Game - Part 2</title>
+    </head>
+    <body onload="do_game()">
         <script>
-	        var target;
-	        var guess_input;
+            var target;
+            var guessInput;
             var guesses = 0;
             var colors = ["blue", "cyan", "gold", "gray", "green",
                           "magenta", "orange", "red", "white", "yellow"];
 
             function do_game() {
-                var finished = false;
-                var target_index = Math.floor(Math.random() * colors.length);
-                target = colors[target_index];
+                var targetIndex = Math.floor(Math.random() * colors.length);
+                target = colors[targetIndex];
 
-                while (!finished) {
-                    guess_input = prompt("I am thinking of one of these colors:\n\n" +
-                                         colors.join(", ") +
-                                         "\n\nWhat color am I thinking of?");
+                do {
+                    guessInput = prompt("I am thinking of one of these colors:\n\n" +
+                                        colors.join(", ") + "\n\n" +
+                                        "What color am I thinking of?");
                     guesses += 1;
-                    finished = check_guess();
-                }
+                } while (!check_guess())
             }
 
             function check_guess() {
-                if (colors.indexOf(guess_input) == -1) {
+                if (colors.indexOf(guessInput) == -1) {
                     alert("Sorry, I don't recognize your color.\n\n" +
                           "Please try again.");
                     return false;
-                }
-                if (guess_input > target) {
+                } else if (guessInput > target) {
                     alert("Sorry, your guess is not correct!\n\n" +
                           "Hint: your color is alphabetically higher than mine.\n\n" +
                           "Please try again.");
                     return false;
-                }
-                if (guess_input < target) {
+                } else if (guessInput < target) {
                     alert("Sorry, your guess is not correct!\n\n" +
                           "Hint: your color is alphabetically lower than mine.\n\n" +
                           "Please try again.");
                     return false;
                 }
 
-                var pageBody = document.getElementsByTagName("body")[0];
-                pageBody.style.background = target;
+                document.body.style.background = target;
 
                 alert("Congratulations! You have guessed the color!\n\n" +
                       "It took you " + guesses + " guesses to finish the game!\n\n" +
@@ -52,7 +49,5 @@
                 return true;
             }
         </script>
-    </head>
-    <body onload="do_game()">
     </body>
 </html>
