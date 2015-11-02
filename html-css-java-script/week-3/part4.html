@@ -4,12 +4,11 @@
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
         <title>Matching Game - Part 4</title>
         <style>
-            img {
+            div, img {
                 position: absolute;
             }
 
             div {
-                position: absolute;
                 width: 500px;
                 height: 500px;
             }
@@ -43,13 +42,14 @@
                     theLeftSide.appendChild(face);
                 }
 
-                cloneFaces();
+                cloneChildren(theLeftSide, theRightSide);
 
                 theLeftSide.lastChild.onclick =
                     function nextLevel(event) {
                         event.stopPropagation();
                         numberOfFaces += 5;
-                        clearFaces();
+                        deleteChildren(theLeftSide);
+                        deleteChildren(theRightSide);
                         generateFaces();
                     };
 
@@ -61,20 +61,15 @@
                     };
             }
 
-            function cloneFaces() {
-                var leftSideImages = theLeftSide.cloneNode(true);
-                leftSideImages.removeAttribute("id");
-                leftSideImages.removeChild(leftSideImages.lastChild);
-                theRightSide.appendChild(leftSideImages);
+            function cloneChildren(source, target) {
+                for (var i = 0; i < source.children.length - 1; i++) {
+                    target.appendChild(source.children[i].cloneNode(true));
+                }
             }
 
-            function clearFaces() {
-                while (theLeftSide.firstChild != null){
-                    theLeftSide.removeChild(theLeftSide.firstChild);
-                }
-
-                while (theRightSide.firstChild != null){
-                    theRightSide.removeChild(theRightSide.firstChild);
+            function deleteChildren(parent) {
+                while (parent.firstChild != null) {
+                    parent.removeChild(parent.firstChild);
                 }
             }
         </script>
