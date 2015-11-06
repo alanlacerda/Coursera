@@ -19,7 +19,7 @@
             }
         </style>
     </head>
-    <body onload="generateFaces()">
+    <body>
         <h1>Matching Game</h1>
         <p>Click on the extra smiling face on the left.</p>
         <div id="leftSide"></div>
@@ -28,6 +28,7 @@
             var numberOfFaces = 5;
             var theLeftSide = document.getElementById("leftSide");
             var theRightSide = document.getElementById("rightSide");
+            document.body.onload = generateFaces();
 
             function generateFaces() {
                 for (var i = 0; i < numberOfFaces; i++) {
