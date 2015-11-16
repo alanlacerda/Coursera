@@ -75,12 +75,12 @@
                         <label class="sr-only" for="email">Password</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                         <div class="checkbox-inline">
-                            <label>
+                            <label>                                
                                 <input type="checkbox" id="rememberme" name="rememberme" value=""> Remember me?
                             </label>
                         </div>
                         <button type="submit" class="btn btn-info">Sign in</button>
-                    </div>                    
+                    </div>
                 </form>
             </div>
         </div>
@@ -97,6 +97,10 @@
                 <div class="col-xs-12 col-sm-2">
                     <p style="padding:20px;"></p>
                     <img src="img/logo.png" class="img-responsive">
+                </div>
+                <div class="col-xs-12 col-sm-2">
+                    <p style="padding:40px;"></p>
+                    <a class="btn btn-warning btn-block" href="#reserve" role="button">Reserve Table</a>
                 </div>
             </div>
         </div>
@@ -130,9 +134,18 @@
                 <h3 align="center">This Month's Promotions</h3>
             </div>
             <div class="col-xs-12 col-sm-9">
-                <h2>Weekend Grand Buffet</h2>
-                <p>Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
-                <p><a class="btn btn-primary btn-xs" href="#">More &raquo;</a></p>
+                <div class="media">
+                    <div class="media-body">
+                        <h2 class="media-heading">Weekend Grand Buffet <span class="label label-danger">New</span></h2>
+                        <p>Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
+                        <p><a class="btn btn-primary btn-xs" href="#">More &raquo;</a></p>
+                    </div>
+                    <div class="media-right media-middle">
+                        <a href="#">
+                            <img class="media-object img-thumbnail" src="img/buffet.png" alt="Buffet">
+                        </a>
+                    </div>                    
+                </div>
             </div>
         </div>
 
@@ -158,6 +171,60 @@
                 </div>
             </div>
         </div>
+
+        <div class="row row-content" id="reserve">
+            <div class="col-xs-12 col-sm-3">
+                <p style="padding:20px;"></p>
+                <h3 align="center">Reserve a Table</h3>
+            </div>
+            <div class="col-xs-12 col-sm-9">
+                <form class="form-horizontal " role="form">
+                    <div class="form-group">
+                        <label for="firstname" class="col-sm-2 control-label">Number of guests</label>
+                        <div class="col-sm-10">
+                            <label class="radio-inline">
+                                <input type="radio" name="numberOfGuests" id="oneguest" value="1"> 1
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="numberOfGuests" id="twoguest" value="2"> 2
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="numberOfGuests" id="threeguest" value="3"> 3
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="numberOfGuests" id="fourguest" value="4"> 4
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="numberOfGuests" id="fiveguest" value="5"> 5
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="numberOfGuests" id="sixguest" value="6"> 6
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label for="lastname" class="col-sm-2 control-label">Date and Time</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="date" name="date" placeholder="Date">
+                            <span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="time" name="time" placeholder="Time">
+                            <span class="glyphicon glyphicon-time form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="reserve" class="btn btn-primary">Reserve</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Warning: </strong>Please <a href="tel:+852 1234 5678" class="alert-link">call</a> us to reserve for more than six guests.
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer class="row-footer">
@@ -175,12 +242,12 @@
                 <div class="col-xs-6 col-sm-5">
                     <h5>Our Address</h5>
                     <address>
-		              121, Clear Water Bay Road<br>
-		              Clear Water Bay, Kowloon<br>
-		              HONG KONG<br>
-		              <i class="fa fa-phone"></i>: +852 1234 5678<br>
-		              <i class="fa fa-fax"></i>: +852 8765 4321<br>
-		              <i class="fa fa-envelope"></i>: 
+                        121, Clear Water Bay Road<br>
+                        Clear Water Bay, Kowloon<br>
+                        HONG KONG<br>
+                        <i class="fa fa-phone"></i>: +852 1234 5678<br>
+                        <i class="fa fa-fax"></i>: +852 8765 4321<br>
+                        <i class="fa fa-envelope"></i>: 
                         <a href="mailto:confusion@food.net">confusion@food.net</a>
 		           </address>
                 </div>
